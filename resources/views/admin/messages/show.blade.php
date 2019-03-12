@@ -29,7 +29,7 @@
         @if($message->phone)
             <span class="mr-2">Phone: </span> {{ $message->phone }}<br>
         @endif
-        <span class="mr-2">Date: </span> {{ $message->created_at->format('M d y | H:i') }}
+        <span class="mr-2">Date: </span> {{ $message->created_at->format('M d Y | H:i') }}
         <hr>
         <p class="mb-0">{{ $message->message }}</p>
     </div>

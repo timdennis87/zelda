@@ -34,15 +34,17 @@
             <form method="post"
                   enctype="multipart/form-data"
                   action="{{ route('about-me.store') }}">
+                @csrf
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="info">About :</label>
-                    <textarea class="form-control summernote" name="info" rows="20"></textarea>
+                    <textarea class="form-control summernote"
+                              id="info"
+                              name="info"
+                              rows="20"></textarea>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="img">Image :</label>
                     <input type="file" class="" name="img"/>
                 </div>

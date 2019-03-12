@@ -34,47 +34,57 @@
             <form method="post"
                   enctype="multipart/form-data"
                   action="{{ route('exhibitions.store') }}">
+                {{ csrf_field() }}
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="title">Title :</label>
-                    <input type="text" class="form-control" name="title"/>
+                    <input type="text"
+                           id="title"
+                           class="form-control"
+                           name="title"/>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="date">Date :</label>
-                    <input type="text" class="form-control" name="date"/>
+                    <input type="text"
+                           id="date"
+                           class="form-control"
+                           name="date"/>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="time">Time :</label>
-                    <input type="text" class="form-control" name="time"/>
+                    <input type="text"
+                           id="time"
+                           class="form-control"
+                           name="time"/>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="venue">Venue :</label>
-                    <input type="text" class="form-control" name="venue"/>
+                    <input type="text"
+                           id="venue"
+                           class="form-control"
+                           name="venue"/>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="address">Address :</label>
-                    <textarea class="form-control summernote" name="address" rows="5"></textarea>
-                    {{--<input type="text" class="form-control" name="address"/>--}}
+                    <textarea class="form-control summernote"
+                              id="address"
+                              name="address"
+                              rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="details">Information :</label>
-                    <textarea class="form-control summernote" name="details" rows="5"></textarea>
-                    {{--<input type="text" class="form-control" name="address"/>--}}
+                    <textarea class="form-control summernote"
+                              id="details"
+                              name="details"
+                              rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
-                    {{ csrf_field() }}
                     <label for="img">Image :</label>
                     <input type="file" class="" name="img"/>
                 </div>

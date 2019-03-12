@@ -15,15 +15,15 @@
                  @endif
                  role="alert">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-2">
                         <i class="fas fa-user-circle"></i>
                         {{ $message->name }}
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-7">
                         <strong>{{ $message->subject }}</strong>
                     </div>
-                    <div class="col-sm-2">
-                        {{ $message->created_at->format('M d y | H:i') }}
+                    <div class="col-3">
+                        {{ $message->created_at->format('d/m/y | H:i') }}
                         @if($message->is_read)
                             <i class="far fa-eye-slash ml-3"></i>
                         @else

@@ -31,38 +31,42 @@
                 </div><br />
             @endif
             <form method="post" action="{{ route('paintings.update', $painting->id) }}">
-                @method('PATCH')
+                {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
                 <div class="form-group">
                     <label for="title">Title :</label>
                     <input type="text"
+                           id="title"
                            class="form-control"
                            name="title"
-                           value={{ $painting->title }} />
+                           value="{{ $painting->title }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="year">Year :</label>
                     <input type="text"
+                           id="year"
                            class="form-control"
                            name="year"
-                           value={{ $painting->year }} />
+                           value="{{ $painting->year }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="size">Size :</label>
                     <input type="text"
+                           id="size"
                            class="form-control"
                            name="size"
-                           value={{ $painting->size }} />
+                           value="{{ $painting->size }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="details">Details :</label>
-                    <textarea class="form-control summernote" name="details" id="" rows="5">
-                        {{ $painting->details }}
-                    </textarea>
+                    <textarea class="form-control summernote"
+                              name="details"
+                              id="details"
+                              rows="5">{{ $painting->details }}</textarea>
                 </div>
 
                 <div>

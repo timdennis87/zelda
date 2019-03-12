@@ -31,53 +31,59 @@
                 </div><br />
             @endif
             <form method="post" action="{{ route('exhibitions.update', $exhibition->id) }}">
-                @method('PATCH')
+                {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
                 <div class="form-group">
                     <label for="title">Title :</label>
                     <input type="text"
+                           id="title"
                            class="form-control"
                            name="title"
-                           value={{ $exhibition->title }} />
+                           value="{{ $exhibition->title }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="date">Date :</label>
                     <input type="text"
+                           id="date"
                            class="form-control"
                            name="date"
-                           value={{ $exhibition->date }} />
+                           value="{{ $exhibition->date }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="time">Time :</label>
                     <input type="text"
+                           id="time"
                            class="form-control"
                            name="time"
-                           value={{ $exhibition->time }} />
+                           value="{{ $exhibition->time }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="venue">Venue :</label>
                     <input type="text"
+                           id="venue"
                            class="form-control"
                            name="venue"
-                           value={{ $exhibition->venue }} />
+                           value="{{ $exhibition->venue }}"/>
                 </div>
 
                 <div class="form-group">
                     <label for="address">Address :</label>
-                    <textarea class="form-control summernote" name="address" rows="5">
-                        {{ $exhibition->address }}
-                    </textarea>
+                    <textarea id="address"
+                              class="form-control summernote"
+                              name="address"
+                              rows="5">{{ $exhibition->address }}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="details">Information :</label>
-                    <textarea class="form-control summernote" name="details" rows="5">
-                        {{ $exhibition->details }}
-                    </textarea>
+                    <textarea class="form-control summernote"
+                              id="details"
+                              name="details"
+                              rows="5">{{ $exhibition->details }}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-success">Update</button>

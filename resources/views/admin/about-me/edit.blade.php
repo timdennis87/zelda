@@ -31,14 +31,15 @@
                 </div><br />
             @endif
             <form method="post" action="{{ route('about-me.update', $information->id) }}">
-                @method('PATCH')
+                {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
                 <div class="form-group">
                     <label for="info">About :</label>
-                    <textarea class="form-control summernote" name="info" rows="10">
-                        {!! nl2br(e($information->info)) !!}
-                    </textarea>
+                    <textarea class="form-control summernote"
+                              name="info"
+                              id="info"
+                              rows="10">{!! nl2br(e($information->info)) !!}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-success">Update</button>

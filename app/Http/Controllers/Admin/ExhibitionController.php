@@ -23,7 +23,6 @@ class ExhibitionController extends Controller
 
         return view('admin.exhibitions.index', [
             'exhibitions' => $exhibitions,
-
         ]);
     }
 
@@ -45,25 +44,15 @@ class ExhibitionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title'=>'required',
-            'date'=>'required',
-            'time'=>'required',
-            'venue'=>'required',
-            'address'=>'required',
-            'img'=>'required',
-        ]);
-
         $exhibition = new Exhibition([
-            'title' => $request->get('title'),
+            'title'   => $request->get('title'),
             'details' => $request->get('details'),
-            'date' => $request->get('date'),
-            'time' => $request->get('time'),
-            'venue' => $request->get('venue'),
+            'date'    => $request->get('date'),
+            'time'    => $request->get('time'),
+            'venue'   => $request->get('venue'),
             'address' => $request->get('address'),
-            'img' => $request->file('img')->store('exhibitions'),
+            'img'     => $request->file('img')->store('exhibitions'),
         ]);
-
 
         $exhibition->save();
 
@@ -103,23 +92,14 @@ class ExhibitionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title'=>'required',
-            'date'=>'required',
-            'time'=>'required',
-            'venue'=>'required',
-            'address'=>'required',
-        ]);
-
         $exhibition = Exhibition::find($id);
 
-        $exhibition->title = $request->get('title');
-        $exhibition->date = $request->get('date');
-        $exhibition->time = $request->get('time');
-        $exhibition->venue = $request->get('venue');
+        $exhibition->title   = $request->get('title');
+        $exhibition->date    = $request->get('date');
+        $exhibition->time    = $request->get('time');
+        $exhibition->venue   = $request->get('venue');
         $exhibition->address = $request->get('address');
         $exhibition->details = $request->get('details');
-
 
         $exhibition->save();
 
@@ -136,8 +116,6 @@ class ExhibitionController extends Controller
     {
 
         $exhibition = Exhibition::find($id);
-
-        unlink(public_path('images/'.$exhibition->img));
 
         $exhibition->delete();
 

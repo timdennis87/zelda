@@ -15,7 +15,6 @@ class AboutController extends Controller
 
         return view('admin.about-me.index', [
             'information' => $information,
-
         ]);
     }
 
@@ -26,7 +25,6 @@ class AboutController extends Controller
      */
     public function create()
     {
-
         return view('admin.about-me.create');
     }
 
@@ -38,16 +36,10 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'info' => 'required',
-            'img'  => 'required',
-        ]);
-
         $information = new About([
             'info' => $request->get('info'),
             'img'  => $request->file('img')->store('about-me'),
         ]);
-
 
         $information->save();
 
@@ -99,8 +91,6 @@ class AboutController extends Controller
     {
 
         $information = About::find($id);
-
-        unlink(public_path('images/'.$information->img));
 
         $information->delete();
 

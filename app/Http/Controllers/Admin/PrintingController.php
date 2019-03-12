@@ -140,8 +140,6 @@ class PrintingController extends Controller
 
         $printing = Printing::find($id);
 
-        unlink(public_path('images/'.$printing->img));
-
         $printing->delete();
 
         return redirect('/admin/printings')->with('success', 'Printing has been deleted Successfully');

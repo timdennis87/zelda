@@ -23,7 +23,6 @@ class PaintingController extends Controller
 
         return view('admin.paintings.index', [
             'paintings' => $paintings,
-
         ]);
     }
 
@@ -45,14 +44,6 @@ class PaintingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title'  =>'required',
-            'year'   =>'required',
-            'size'   =>'required',
-            'details'=>'required',
-            'img'    =>'required',
-        ]);
-
         $painting = new Painting([
             'title'   => $request->get('title'),
             'year'    => $request->get('year'),
@@ -100,13 +91,6 @@ class PaintingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title'  =>'required',
-            'year'   =>'required',
-            'size'   =>'required',
-            'details'=>'required',
-        ]);
-
         $painting = Painting::find($id);
 
         $input = Input::except(['_token']);
@@ -140,8 +124,6 @@ class PaintingController extends Controller
     {
 
         $painting = Painting::find($id);
-
-        unlink(public_path('images/'.$painting->img));
 
         $painting->delete();
 
