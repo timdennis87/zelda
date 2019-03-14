@@ -5,7 +5,7 @@
     <div class="view">
         <div class="col-12">
             <div class="row">
-                <h1 class="mx-auto mt-4">Paintings Sold</h1>
+                <h1 class="mx-auto mt-4">Paintings Archive</h1>
             </div>
         </div>
 
@@ -13,10 +13,10 @@
     </div>
 
     <div class="container">
-        <a href="{{ url('/sold') }}"
+        <a href="{{ url('/archive') }}"
            class="btn btn-info mb-5">
             <i class="fas fa-chevron-left"></i>
-            Back To Sold Page
+            Back To Archive Page
         </a>
         <div class="row">
 
@@ -27,7 +27,7 @@
                              src="{{ asset('images/').'/'. $painting->img }}" width="100%"
                         >
                         <div class="card-footer text-center">
-                            <h5>{{ $painting->title }}</h5>
+                            {{ $painting->title }}
                         </div>
                     </div>
                 </div>

@@ -45,6 +45,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="order_date">Order Date :</label>
+                    <input type="date"
+                           id="order_date"
+                           class="form-control"
+                           name="order_date"/>
+                </div>
+
+                <div class="form-group">
                     <label for="date">Date :</label>
                     <input type="text"
                            id="date"

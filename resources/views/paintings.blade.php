@@ -22,7 +22,7 @@
                             >
                         </a>
                         <div class="card-footer text-center">
-                            <h5>{{ $painting->title }}</h5>
+                            {{ $painting->title }}
                         </div>
                     </div>
                 </div>

@@ -70,7 +70,7 @@
                 </div>
 
                 <div>
-                    <label for="is_sold">Sold :</label>
+                    <label for="is_sold">Archive :</label>
                     <input type="hidden" value="0" name="is_sold">
                     <input {{isset($painting['is_sold'])&&$painting['is_sold']=='Yes' ? 'checked' : ''}}
                            id="is_sold"

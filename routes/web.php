@@ -17,9 +17,9 @@ Route::get('/show-painting/{painting}', 'PaintingController@show');
 
 Route::get('/exhibitions', 'ExhibitionController@index');
 
-Route::get('/sold', 'SoldController@index');
-Route::get('/sold-prints', 'SoldController@soldPrints');
-Route::get('/sold-paintings', 'SoldController@soldPaintings');
+Route::get('/archive', 'ArchiveController@index');
+Route::get('/archive-prints', 'ArchiveController@archivePrints');
+Route::get('/archive-paintings', 'ArchiveController@archivePaintings');
 
 Route::resource('/contact', 'MainMessageController');
 

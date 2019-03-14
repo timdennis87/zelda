@@ -40,7 +40,7 @@
                             >
                         </a>
                         <div class="card-footer text-center">
-                            <h5>{{ $print->title }}</h5>
+                            {{ $print->title }}
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             >
                         </a>
                         <div class="card-footer text-center">
-                            <h5>{{ $painting->title }}</h5>
+                            {{ $painting->title }}
                         </div>
                     </div>
                 </div>

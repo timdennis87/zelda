@@ -19,10 +19,12 @@
             <h1 class="mb-3">About Me</h1>
         </div>
 
-        <a href="about-me/create"
-           class="btn btn-success">
-            Add About Me Information
-        </a>
+        @if(auth()->user()->role == 0)
+            <a href="about-me/create"
+               class="btn btn-success">
+                Add About Me Information
+            </a>
+        @endif
 
         <table class="table table-striped mt-3">
             <tr>
@@ -37,21 +39,23 @@
                         <img src="{{asset('images/').'/'. $info->img }}" width="150px">
                     </td>
                     <td>
-                        <form action="{{ route('about-me.destroy',$info->id) }}" method="POST">
+                        @if(auth()->user()->role == 0)
+                            <form action="{{ route('about-me.destroy',$info->id) }}" method="POST">
 
-                            <a class="btn btn-primary"
-                               href="{{ route('about-me.edit',$info->id) }}">
-                                <i class="fas fa-edit"></i>
-                            </a>
+                                <a class="btn btn-primary"
+                                   href="{{ route('about-me.edit',$info->id) }}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
 
-                            @csrf
-                            @method('DELETE')
+                                @csrf
+                                @method('DELETE')
 
-                            <button type="submit"
-                                    class="btn btn-danger">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+                                <button type="submit"
+                                        class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach

@@ -5,26 +5,26 @@ namespace App\Http\Controllers;
 use App\Printing;
 use App\Painting;
 
-class SoldController extends Controller
+class ArchiveController extends Controller
 {
     public function index()
     {
-        return view('sold');
+        return view('archive');
     }
 
-    public function soldPrints()
+    public function archivePrints()
     {
         $printings = Printing::where('is_sold', 0)
             ->get();
 
-        return view('sold-prints', compact('printings'));
+        return view('archive-prints', compact('printings'));
     }
 
-    public function soldPaintings()
+    public function archivePaintings()
     {
         $paintings = Painting::where('is_sold', 0)
             ->get();
 
-        return view('sold-paintings', compact('paintings'));
+        return view('archive-paintings', compact('paintings'));
     }
 }

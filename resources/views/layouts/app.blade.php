@@ -104,7 +104,7 @@
 
                     <li class="nav-item active">
                         <a class="nav-link"
-                           href="{{ url('sold') }}">Sold
+                           href="{{ url('archive') }}">Archive
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>

@@ -9,7 +9,7 @@ class ExhibitionController extends Controller
 {
     public function index()
     {
-        $exhibitions = Exhibition::orderBy('created_at', 'desc')->get();
+        $exhibitions = Exhibition::orderBy('order_date', 'asc')->get();
 
         return view('exhibitions', [
             'exhibitions' => $exhibitions,

@@ -45,13 +45,14 @@ class ExhibitionController extends Controller
     public function store(Request $request)
     {
         $exhibition = new Exhibition([
-            'title'   => $request->get('title'),
-            'details' => $request->get('details'),
-            'date'    => $request->get('date'),
-            'time'    => $request->get('time'),
-            'venue'   => $request->get('venue'),
-            'address' => $request->get('address'),
-            'img'     => $request->file('img')->store('exhibitions'),
+            'title'      => $request->get('title'),
+            'details'    => $request->get('details'),
+            'order_date' => $request->get('order_date'),
+            'date'       => $request->get('date'),
+            'time'       => $request->get('time'),
+            'venue'      => $request->get('venue'),
+            'address'    => $request->get('address'),
+            'img'        => $request->file('img')->store('exhibitions'),
         ]);
 
         $exhibition->save();
@@ -94,12 +95,13 @@ class ExhibitionController extends Controller
     {
         $exhibition = Exhibition::find($id);
 
-        $exhibition->title   = $request->get('title');
-        $exhibition->date    = $request->get('date');
-        $exhibition->time    = $request->get('time');
-        $exhibition->venue   = $request->get('venue');
-        $exhibition->address = $request->get('address');
-        $exhibition->details = $request->get('details');
+        $exhibition->title        = $request->get('title');
+        $exhibition->order_date   = $request->get('order_date');
+        $exhibition->date         = $request->get('date');
+        $exhibition->time         = $request->get('time');
+        $exhibition->venue        = $request->get('venue');
+        $exhibition->address      = $request->get('address');
+        $exhibition->details      = $request->get('details');
 
         $exhibition->save();
 

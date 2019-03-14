@@ -19,10 +19,12 @@
             </div><br />
         @endif
 
-        <a href="printings/create"
-           class="btn btn-success">
-            Add Print
-        </a>
+        @if(auth()->user()->role == 0)
+            <a href="printings/create"
+               class="btn btn-success">
+                Add Print
+            </a>
+        @endif
 
 
             <table class="table table-striped mt-3">
@@ -50,21 +52,23 @@
                             @endif
                         </td>
                         <td>
-                            <form action="{{ route('printings.destroy',$printing->id) }}" method="POST">
+                            @if(auth()->user()->role == 0)
+                                <form action="{{ route('printings.destroy',$printing->id) }}" method="POST">
 
-                                <a class="btn btn-primary"
-                                   href="{{ route('printings.edit',$printing->id) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
+                                    <a class="btn btn-primary"
+                                       href="{{ route('printings.edit',$printing->id) }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
 
-                                @csrf
-                                @method('DELETE')
+                                    @csrf
+                                    @method('DELETE')
 
-                                <button type="submit"
-                                        class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
+                                    <button type="submit"
+                                            class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

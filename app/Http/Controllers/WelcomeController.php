@@ -12,7 +12,7 @@ class WelcomeController extends Controller
     {
         $prints = Printing::where('is_sold', 1)->orderBy('updated_at','desc')->limit(4)->get();
         $painting = Painting::where('is_sold', 1)->orderBy('updated_at','desc')->limit(4)->get();
-        $exhibitions = Exhibition::orderBy('updated_at','desc')->limit(1)->get();
+        $exhibitions = Exhibition::orderBy('order_date','asc')->limit(1)->get();
 
         return view('welcome', [
             'prints'      => $prints,

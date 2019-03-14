@@ -43,8 +43,7 @@
         <div class="row">
 
             <div class="col-sm-12 col-md-6">
-                <img type="button"
-                     class="pointer mx-auto d-block mb-3 shadow-sm p-3 mb-5 bg-white rounded"
+                <img class="pointer mx-auto d-block mb-3 shadow-sm p-3 mb-5 bg-white rounded"
                      src="{{ asset('images/').'/'. $print->img }}"
                      width="100%"
                      data-toggle="modal"
@@ -52,15 +51,14 @@
                 >
             </div>
             <div class="col-sm-12 col-md-6 mb-3">
-                <h4><strong>Title: </strong><br>{{ $print->title }}</h4>
-                <h4><strong>Year: </strong><br>{{ $print->year }}</h4>
-                <h4><strong>Size: </strong><br>{{ $print->size }}</h4>
-                <h4><strong>Price: </strong><br>Please fill out the contact form below.</h4>
+                <p><strong>Title: </strong><br>{{ $print->title }}</p>
+                <p><strong>Size: </strong><br>{{ $print->size }}</p>
+                <p><strong>Price: </strong><br>Please fill out the contact form below.</p>
 
             @if($print->details != '')
-                    <h4><strong>Details: </strong>
+                    <p><strong>Details: </strong>
                         {!! preg_replace( "/\r|\n/", "", $print->details) !!}
-                    </h4>
+                    </p>
                 @endif
             </div>
         </div>
@@ -71,7 +69,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{ $print->title }}</h5>
+                    <p class="modal-title">{{ $print->title }}</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -110,28 +108,45 @@
             <div class="form-group">
                 {{ csrf_field() }}
                 <label for="name">Name *</label>
-                <input type="text" class="form-control" name="name" value="{{ old('name') }}"/>
+                <input type="text"
+                       id="name"
+                       class="form-control"
+                       name="name"
+                       value="{{ old('name') }}"/>
             </div>
 
             <div class="form-group">
                 {{ csrf_field() }}
                 <label for="email">Email *</label>
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}"/>
+                <input type="email"
+                       id="email"
+                       class="form-control"
+                       name="email"
+                       value="{{ old('email') }}"/>
             </div>
 
             <div class="form-group">
                 {{ csrf_field() }}
                 <label for="phone">Phone Number</label>
-                <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}"/>
+                <input type="tel"
+                       id="phone"
+                       class="form-control"
+                       name="phone"
+                       value="{{ old('phone') }}"/>
             </div>
 
             {{ csrf_field() }}
-            <input type="hidden" name="subject" value="Print : {{ $print->title }}"/>
+            <input type="hidden"
+                   name="subject"
+                   value="Print : {{ $print->title }}"/>
 
             <div class="form-group">
                 {{ csrf_field() }}
                 <label for="message">Message *</label>
-                <textarea class="form-control" name="message" rows="5">{{ old('message') }}</textarea>
+                <textarea class="form-control"
+                          id="message"
+                          name="message"
+                          rows="5">{{ old('message') }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success btn-lg">Send Message</button>

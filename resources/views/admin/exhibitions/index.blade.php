@@ -19,9 +19,12 @@
             <h1 class="mb-3">Exhibitions</h1>
         </div>
 
-        <a href="exhibitions/create"
-           class="btn btn-success">
-            Add Exhibition</a>
+        @if(auth()->user()->role == 0)
+            <a href="exhibitions/create"
+               class="btn btn-success">
+                Add Exhibition
+            </a>
+        @endif
 
 
             <table class="table table-striped mt-3">
@@ -47,21 +50,23 @@
                             <img src="{{asset('images/').'/'. $exhibition->img }}" width="35px">
                         </td>
                         <td>
-                            <form action="{{ route('exhibitions.destroy',$exhibition->id) }}" method="POST">
+                            @if(auth()->user()->role == 0)
+                                <form action="{{ route('exhibitions.destroy',$exhibition->id) }}" method="POST">
 
-                                <a class="btn btn-primary"
-                                   href="{{ route('exhibitions.edit',$exhibition->id) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
+                                    <a class="btn btn-primary"
+                                       href="{{ route('exhibitions.edit',$exhibition->id) }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
 
-                                @csrf
-                                @method('DELETE')
+                                    @csrf
+                                    @method('DELETE')
 
-                                <button type="submit"
-                                        class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
+                                    <button type="submit"
+                                            class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
