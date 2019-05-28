@@ -21,9 +21,9 @@
                                  src="{{ asset('images/').'/'. $print->img }}" width="100%"
                             >
                         </a>
-                        <div class="card-footer text-center">
-                            {{ $print->title }}
-                        </div>
+                        {{--<div class="card-footer text-center">--}}
+                            {{--{{ $print->title }}--}}
+                        {{--</div>--}}
                     </div>
                 </div>
             @endforeach
