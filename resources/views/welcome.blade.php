@@ -5,7 +5,7 @@
     <div class="view">
         <div class="col-12">
             <div class="row">
-                <h1 class="mx-auto mt-4">Welcome</h1>
+                <h1 class="mx-auto mt-4">Welcome.</h1>
             </div>
         </div>
 
