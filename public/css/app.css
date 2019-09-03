@@ -10478,7 +10478,7 @@ h4 {
 
 h5 {
   font-size: 1.5em;
-  /*font-family: 'Caveat', cursive;*/
+  font-family: 'Caveat', cursive;
 }
 
 .pointer:hover {
