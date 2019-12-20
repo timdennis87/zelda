@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="col-12">
         <div class="row">
             <h1 class="mx-auto mt-4">{{ $print->title }}</h1>

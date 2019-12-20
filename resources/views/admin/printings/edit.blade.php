@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="details">Information :</label>
+                    <label for="details">Details :</label>
                     <textarea class="form-control summernote"
                               id="details"
                               name="details"
@@ -70,11 +70,10 @@
                 </div>
 
                 <div>
-                    <label for="is_sold">Archive :</label>
-                    <input type="hidden" value="0" name="is_sold">
-                    <input {{isset($printing['is_sold'])&&$printing['is_sold']=='Yes' ? 'checked' : ''}}
+                    <label for="is_sold">Sold :</label>
+                    <input {{ $printing['is_sold'] && $printing['is_sold'] == 1 ? 'checked' : '' }}
                            id="is_sold"
-                           value="Yes"
+                           value="1"
                            type="checkbox"
                            name="is_sold"
                     >

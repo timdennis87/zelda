@@ -5,7 +5,10 @@
     <div class="view">
         <div class="col-12">
             <div class="row">
-                <h1 class="mx-auto mt-4">Welcome</h1>
+                <div class="mx-auto mt-4 text-center">
+                    <h1>Zelda Eady</h1>
+                    <h4>Painter & Printmaker</h4>
+                </div>
             </div>
         </div>
 

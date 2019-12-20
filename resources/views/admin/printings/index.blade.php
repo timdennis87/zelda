@@ -27,15 +27,15 @@
         @endif
 
 
-            <table class="table table-striped mt-3">
-                <tr>
+            <table class="table table-sm mt-3">
+                <tr class="font-weight-bold">
                     <th>Title</th>
                     <th>Year</th>
                     <th>Size</th>
                     <th>Details</th>
                     <th>Image</th>
                     <th class="text-center">Sold</th>
-                    <th width="110px">Action</th>
+                    <th class="text-center" width="110px">Action</th>
                 </tr>
                 @foreach ($printings as $printing)
                     <tr>
@@ -47,12 +47,12 @@
                             <img src="{{asset('images/').'/'. $printing->img }}" width="35px">
                         </td>
                         <td class="text-center">
-                            @if($printing->is_sold == '0')
+                            @if($printing->is_sold == 1)
                                 <i class="text-success fas fa-check"></i>
                             @endif
                         </td>
-                        <td>
-                            @if(auth()->user()->role == 0)
+                        <td class="text-center">
+                        @if(auth()->user()->role == 0)
                                 <form action="{{ route('printings.destroy',$printing->id) }}" method="POST">
 
                                     <a class="btn btn-primary"
@@ -74,4 +74,5 @@
                 @endforeach
             </table>
         <div>
+
 @endsection

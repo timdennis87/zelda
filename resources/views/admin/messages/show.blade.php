@@ -11,10 +11,9 @@
         <button type="submit" class="btn btn-success mb-3">Update/Back</button>
         <div>
             <label for="is_read">Read Message :</label>
-            <input type="hidden" value="0" name="is_read">
-            <input {{$message['is_read']=='Yes' ? 'checked' : ''}}
+            <input {{ $message['is_read'] && $message['is_read'] == 1 ? 'checked' : 'checked' }}
                    id="is_read"
-                   value="Yes"
+                   value="1"
                    type="checkbox"
                    name="is_read"
             >

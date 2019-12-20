@@ -27,16 +27,16 @@
         @endif
 
 
-            <table class="table table-striped mt-3">
-                <tr>
+            <table class="table table-sm mt-3">
+                <tr class="font-weight-bold">
                     <th>Title</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Venue</th>
                     <th width="150px">Address</th>
                     <th>Details</th>
-                    <th>Image</th>
-                    <th width="110px">Action</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center" width="110px">Action</th>
                 </tr>
                 @foreach ($exhibitions as $exhibition)
                     <tr>
@@ -46,10 +46,10 @@
                         <td>{{ $exhibition->venue }}</td>
                         <td>{!! strip_tags($exhibition->address) !!}</td>
                         <td>{!! strip_tags($exhibition->details) !!}</td>
-                        <td>
+                        <td class="text-center">
                             <img src="{{asset('images/').'/'. $exhibition->img }}" width="35px">
                         </td>
-                        <td>
+                        <td class="text-center">
                             @if(auth()->user()->role == 0)
                                 <form action="{{ route('exhibitions.destroy',$exhibition->id) }}" method="POST">
 

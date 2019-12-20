@@ -21,9 +21,6 @@
                                  src="{{ asset('images/').'/'. $painting->img }}" width="100%"
                             >
                         </a>
-                        {{--<div class="card-footer text-center">--}}
-                            {{--{{ $painting->title }}--}}
-                        {{--</div>--}}
                     </div>
                 </div>
             @endforeach

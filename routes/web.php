@@ -5,17 +5,17 @@
  *
  * */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@welcome');
 
-Route::get('/about-me', 'AboutController@index');
+Route::get('/about-me', 'AboutController@aboutMe');
 
-Route::get('/prints', 'PrintController@index');
-Route::get('/show-print/{print}', 'PrintController@show');
+Route::get('/prints', 'PrintController@showPrints');
+Route::get('/show-print/{print}', 'PrintController@showIndividualPrint');
 
-Route::get('/paintings', 'PaintingController@index');
-Route::get('/show-painting/{painting}', 'PaintingController@show');
+Route::get('/paintings', 'PaintingController@showPaintings');
+Route::get('/show-painting/{painting}', 'PaintingController@showIndividualPainting');
 
-Route::get('/exhibitions', 'ExhibitionController@index');
+Route::get('/exhibitions', 'ExhibitionController@showExhibitions');
 
 Route::get('/archive', 'ArchiveController@index');
 Route::get('/archive-prints', 'ArchiveController@archivePrints');
@@ -49,9 +49,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('admin/about-me', 'Admin\AboutController');
 
     //Messages
-    Route::get('admin/messages', 'Admin\MessageController@index');
-    Route::get('admin/messages/show/{message}', 'Admin\MessageController@show');
-    Route::post('admin/messages/show/{message}', 'Admin\MessageController@update');
+    Route::get('admin/messages', 'Admin\MessageController@showAllMessages');
+    Route::get('admin/messages/show/{message}', 'Admin\MessageController@showIndividualMessage');
+    Route::post('admin/messages/show/{message}', 'Admin\MessageController@updateMessage');
 
 });
 

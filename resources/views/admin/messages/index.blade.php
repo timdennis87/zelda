@@ -10,9 +10,9 @@
         @foreach($messages as $message)
             <a href="messages/show/{{ $message->id }}">
                 <div @if($message->is_read)
-                        class="alert alert-primary shadow"
+                     class="alert alert-light shadow-sm"
                      @else
-                        class="alert alert-light shadow-sm"
+                     class="alert alert-primary shadow"
                      @endif
                      role="alert">
                     <div class="row">
@@ -26,9 +26,9 @@
                         <div class="col-3">
                             {{ $message->created_at->format('d/m/y | H:i') }}
                             @if($message->is_read)
-                                <i class="far fa-eye-slash ml-3"></i>
-                            @else
                                 <i class="far fa-eye ml-3"></i>
+                            @else
+                                <i class="far fa-eye-slash ml-3"></i>
                             @endif
                         </div>
                     </div>

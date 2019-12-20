@@ -8,11 +8,21 @@ use App\Printing;
 
 class WelcomeController extends Controller
 {
-    public function index()
+    public function welcome()
     {
-        $prints      = Printing::where('is_sold', 1)->orderBy('updated_at','desc')->limit(4)->get();
-        $painting    = Painting::where('is_sold', 1)->orderBy('updated_at','desc')->limit(4)->get();
-        $exhibitions = Exhibition::orderBy('order_date','asc')->limit(1)->get();
+        $prints = Printing::where('is_sold', 0)
+            ->orderBy('updated_at','desc')
+            ->limit(4)
+            ->get();
+
+        $painting = Painting::where('is_sold', 0)
+            ->orderBy('updated_at','desc')
+            ->limit(4)
+            ->get();
+
+        $exhibitions = Exhibition::orderBy('order_date','asc')
+            ->limit(1)
+            ->get();
 
         return view('welcome', [
             'prints'      => $prints,

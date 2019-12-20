@@ -70,11 +70,10 @@
                 </div>
 
                 <div>
-                    <label for="is_sold">Archive :</label>
-                    <input type="hidden" value="0" name="is_sold">
-                    <input {{isset($painting['is_sold'])&&$painting['is_sold']=='Yes' ? 'checked' : ''}}
+                    <label for="is_sold">Sold :</label>
+                    <input {{ $painting['is_sold'] && $painting['is_sold'] == 1 ? 'checked' : '' }}
                            id="is_sold"
-                           value="Yes"
+                           value="1"
                            type="checkbox"
                            name="is_sold"
                     >

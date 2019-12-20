@@ -6,19 +6,24 @@ use App\Printing;
 
 class PrintController extends Controller
 {
-    public function index()
+    public function showPrints()
     {
-        $printings = Printing::where('is_sold', 1)->get();
+        $printings = Printing::where('is_sold', 0)->get();
 
         return view('prints', [
             'printings' => $printings,
         ]);
     }
 
-    public function show(Printing $print)
+    public function showIndividualPrint(Printing $print)
     {
-        $previous = Printing::where('is_sold', 1)->where('id', '<', $print->id)->first();
-        $next     = Printing::where('is_sold', 1)->where('id', '>', $print->id)->first();
+        $previous = Printing::where('is_sold', 0)
+            ->where('id', '<', $print->id)
+            ->first();
+
+        $next = Printing::where('is_sold', 0)
+            ->where('id', '>', $print->id)
+            ->first();
 
         return view('show-print', [
             'print'    => $print,

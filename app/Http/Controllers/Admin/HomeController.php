@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
+use App\MainMessage;
 
 class HomeController extends Controller
 {
@@ -18,13 +17,20 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('admin.index');
+
+
+        return view('admin.index', [
+            'unreadMessages' => $this->getAmountOfUnreadMessages()
+        ]);
     }
+
+    public function getAmountOfUnreadMessages()
+    {
+        return MainMessage::where('is_read', 0)
+            ->get()
+            ->count();
+    }
+
 }

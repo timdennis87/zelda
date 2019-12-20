@@ -14,17 +14,19 @@ class ArchiveController extends Controller
 
     public function archivePrints()
     {
-        $printings = Printing::where('is_sold', 0)
-            ->get();
+        $printings = Printing::where('is_sold', 1)->get();
 
-        return view('archive-prints', compact('printings'));
+        return view('archive-prints',[
+            'printings' => $printings
+        ]);
     }
 
     public function archivePaintings()
     {
-        $paintings = Painting::where('is_sold', 0)
-            ->get();
+        $paintings = Painting::where('is_sold', 1)->get();
 
-        return view('archive-paintings', compact('paintings'));
+        return view('archive-paintings',[
+            'paintings' => $paintings
+        ]);
     }
 }

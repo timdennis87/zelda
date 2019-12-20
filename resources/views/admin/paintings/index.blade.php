@@ -27,15 +27,15 @@
         @endif
 
 
-            <table class=" table table-striped mt-3">
-                <tr>
+            <table class="table table-sm mt-3">
+                <tr class="font-weight-bold">
                     <th>Title</th>
                     <th>Year</th>
                     <th>Size</th>
                     <th>Details</th>
                     <th>Image</th>
                     <th class="text-center">Sold</th>
-                    <th width="110px">Action</th>
+                    <th class="text-center" width="110px">Action</th>
                 </tr>
                 @foreach ($paintings as $painting)
                     <tr>
@@ -47,11 +47,11 @@
                             <img src="{{asset('images/').'/'. $painting->img }}" width="35px">
                         </td>
                         <td class="text-center">
-                            @if($painting->is_sold == '0')
+                            @if($painting->is_sold == 1)
                                 <i class="text-success fas fa-check"></i>
                             @endif
                         </td>
-                        <td>
+                        <td class="text-center">
                             @if(auth()->user()->role == 0)
                                 <form action="{{ route('paintings.destroy',$painting->id) }}" method="POST">
 

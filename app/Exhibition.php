@@ -16,8 +16,4 @@ class Exhibition extends Model
         'address',
         'img',
     ];
-
-    protected $dates = [
-        'order_date',
-    ];
 }

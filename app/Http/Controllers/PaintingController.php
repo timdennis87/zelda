@@ -6,19 +6,24 @@ use App\Painting;
 
 class PaintingController extends Controller
 {
-    public function index()
+    public function showPaintings()
     {
-        $paintings = Painting::where('is_sold', 1)->get();
+        $paintings = Painting::where('is_sold', 0)->get();
 
         return view('paintings', [
             'paintings' => $paintings,
         ]);
     }
 
-    public function show(Painting $painting)
+    public function showIndividualPainting(Painting $painting)
     {
-        $previous = Painting::where('is_sold', 1)->where('id', '<', $painting->id)->first();
-        $next     = Painting::where('is_sold', 1)->where('id', '>', $painting->id)->first();
+        $previous = Painting::where('is_sold', 0)
+            ->where('id', '<', $painting->id)
+            ->first();
+
+        $next = Painting::where('is_sold', 0)
+            ->where('id', '>', $painting->id)
+            ->first();
 
         return view('show-painting', [
             'painting' => $painting,

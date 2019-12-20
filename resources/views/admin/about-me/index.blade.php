@@ -12,7 +12,7 @@
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
-            </div><br />
+            </div><br/>
         @endif
 
         <div class="text-center">
@@ -26,19 +26,19 @@
             </a>
         @endif
 
-        <table class="table table-striped mt-3">
-            <tr>
+        <table class="table table-sm mt-3">
+            <tr class="font-weight-bold">
                 <th>About</th>
-                <th width="200px">Image</th>
-                <th width="110px">Action</th>
+                <th class="text-center" width="200px">Image</th>
+                <th class="text-center" width="110px">Action</th>
             </tr>
             @foreach ($information as $info)
                 <tr>
                     <td>{!! strip_tags($info->info) !!}</td>
-                    <td>
+                    <td class="text-center">
                         <img src="{{asset('images/').'/'. $info->img }}" width="150px">
                     </td>
-                    <td>
+                    <td class="text-center">
                         @if(auth()->user()->role == 0)
                             <form action="{{ route('about-me.destroy',$info->id) }}" method="POST">
 

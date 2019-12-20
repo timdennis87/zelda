@@ -40,7 +40,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'prod' => [
+        'mysql' => [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => '3306',
@@ -56,7 +56,7 @@ return [
             'engine' => null,
         ],
 
-        'mysql' => [
+        'prod' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),

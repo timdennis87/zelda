@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Exhibition;
-use Illuminate\Http\Request;
 
 class ExhibitionController extends Controller
 {
-    public function index()
+    public function showExhibitions()
     {
         $exhibitions = Exhibition::orderBy('order_date', 'asc')->get();
 

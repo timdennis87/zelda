@@ -21,15 +21,13 @@ class MainMessageController extends Controller
             'message' => 'required',
         ]);
 
-        $exhibition = new MainMessage([
+        MainMessage::create([
             'name'    => $request->get('name'),
             'email'   => $request->get('email'),
             'phone'   => $request->get('phone'),
             'subject' => $request->get('subject'),
             'message' => $request->get('message'),
-        ]);
-
-        $exhibition->save();
+        ])->save();
 
         return redirect()->back()->with('message', 'Message has been sent');
     }

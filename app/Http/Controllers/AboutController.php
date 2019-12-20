@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\About;
-use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function index()
+    public function aboutMe()
     {
-        $information = About::get();
+        $aboutMe  = About::get();
+        $linkInfo = $this->getLinkInformation();
 
         return view('about-me', [
-            'information' => $information,
+            'aboutMe'  => $aboutMe,
+            'linkInfo' =>$linkInfo
         ]);
+    }
+
+    public function getLinkInformation()
+    {
+        return \DB::table('useful_links')
+            ->where('id', 1)
+            ->first([
+                'name',
+                'details',
+                'url'
+            ]);
     }
 }

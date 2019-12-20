@@ -11,9 +11,9 @@ use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
 {
-    public function index()
+    public function showAllMessages()
     {
-        $messages = MainMessage::orderBy('is_read', 0)
+        $messages = MainMessage::orderBy('is_read', 'asc')
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -23,24 +23,24 @@ class MessageController extends Controller
         ]);
     }
 
-    public function show(MainMessage $message)
+    public function showIndividualMessage(MainMessage $message)
     {
-
         return view('admin.messages.show', [
             'message'  => $message,
         ]);
     }
 
-    public function update(Request $request, $message)
+    public function updateMessage(Request $request, $message)
     {
         $message = MainMessage::find($message);
+
         $input = Input::except(['_token']);
 
-        if ($request->get('is_read') == '0') {
-            $message->is_read = 1;
+        if ($request->get('is_read') == 0) {
+            $message->is_read = 0;
             $message->update($input);
         } else {
-            $message->is_read = 0;
+            $message->is_read = 1;
             $message->update($input);
         }
 

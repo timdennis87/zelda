@@ -10,17 +10,20 @@
 
     <hr class="mb-5">
 
-    @foreach($information as $info)
+    @foreach($aboutMe as $about)
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-4">
-                    <img class="mx-auto d-block mb-3 shadow-sm p-3 mb-5 bg-white rounded" src="{{asset('images/').'/'. $info->img }}" width="100%">
+                    <img class="mx-auto d-block mb-3 shadow-sm p-3 mb-5 bg-white rounded"
+                         src="{{asset('images/').'/'. $about->img }}"
+                         width="100%">
                 </div>
                 <div class="col-sm-12 col-md-8 mb-3">
-                    <p>{!! $info->info !!} </p>
-                    Visit my page at Open Studios -
-                    <a href="https://www.nnopenstudios.org.uk/artists/details/1363">
-                        nnopenstudios.org.uk
+                    <p>{!! $about->info !!} </p>
+                    {{ $linkInfo->details }}
+                    -
+                    <a href="{{ $linkInfo->url }}" target="_blank">
+                        {{ $linkInfo->name }}
                     </a>
                 </div>
             </div>
